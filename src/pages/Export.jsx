@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
-import { Button } from './ui/button'
-import { Badge } from './ui/badge'
-import { Checkbox } from './ui/checkbox'
+import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
+import { Button } from '../components/ui/button'
+import { Badge } from '../components/ui/badge'
+import { Checkbox } from '../components/ui/checkbox'
 import { 
   Download, 
-  FileText, 
-  Calendar, 
+  FileText,
   BarChart3, 
   Settings,
   FileSpreadsheet,
@@ -14,14 +13,14 @@ import {
   CheckCircle,
   Clock
 } from 'lucide-react'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from './ui/select'
+} from '../components/ui/select'
 
 const exportHistory = [
   {
@@ -81,7 +80,7 @@ const reportTypes = [
   }
 ]
 
-export function Export() {
+export default function Export() {
   const [selectedReports, setSelectedReports] = useState([])
   const [selectedFormat, setSelectedFormat] = useState('PDF')
   const [dateRange, setDateRange] = useState('ytd')
