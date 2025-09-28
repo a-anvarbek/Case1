@@ -1,7 +1,7 @@
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
-import { Badge } from './ui/badge'
-import { Button } from './ui/button'  
-import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs'
+import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
+import { Badge } from '../components/ui/badge'
+import { Button } from '../components/ui/button'  
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs'
 import { 
   BarChart3, 
   PieChart, 
@@ -115,7 +115,7 @@ const sectorPerformance = [
   { sector: 'Energy', return: -2.4, color: '#06b6d4' }
 ]
 
-export function Portfolio() {
+export default function Portfolio() {
   return (
     <div className="p-6 space-y-6">
       <div className="flex items-center justify-between">

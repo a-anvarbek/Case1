@@ -1,15 +1,15 @@
 import { useState } from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
-import { Badge } from './ui/badge'
-import { Button } from './ui/button'
-import { Input } from './ui/input'
+import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
+import { Badge } from '../components/ui/badge'
+import { Button } from '../components/ui/button'
+import { Input } from '../components/ui/input'
 import { TrendingUp, Plus, Search, Filter, MoreHorizontal, DollarSign, Calendar } from 'lucide-react'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from './ui/dropdown-menu'
+} from '../components/ui/dropdown-menu'
 
 const pipelineData = [
   {
@@ -81,7 +81,7 @@ const statusConfig = {
   rejected: { color: 'bg-red-500/10 text-red-600 border-red-500/20', label: 'Rejected' }
 }
 
-export function Pipeline() {
+export default function Pipeline() {
   const [searchTerm, setSearchTerm] = useState('')
   const [statusFilter, setStatusFilter] = useState('all')
 

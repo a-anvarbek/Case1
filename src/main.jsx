@@ -1,5 +1,22 @@
-  import { createRoot } from "react-dom/client";
-  import App from "./App.jsx";
-  import "./index.css";
+// Libraries
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router";
 
-  createRoot(document.getElementById("root")).render(<App />);
+// Component
+import App from "./App.jsx";
+
+// Style
+import "./index.css";
+
+// Root element
+const container = document.getElementById("root");
+const root = createRoot(container);
+
+root.render(
+  <StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </StrictMode>
+);

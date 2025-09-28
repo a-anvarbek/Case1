@@ -1,6 +1,6 @@
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
-import { Badge } from './ui/badge'
-import { AITipsCard } from './AITipsCard'
+import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
+import { Badge } from '../components/ui/badge'
+import { AITipsCard } from '../components/AITipsCard'
 import { TrendingUp, TrendingDown, DollarSign, Activity, Clock, Newspaper } from 'lucide-react'
 
 const marketNews = [
@@ -55,7 +55,7 @@ const portfolioStats = [
   }
 ]
 
-export function MorningBrief() {
+export default function MorningBrief() {
   return (
     <div className="p-6 space-y-6">
       <div className="flex items-center gap-3 mb-6">
