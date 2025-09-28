@@ -138,7 +138,7 @@ export function Pipeline() {
               onClick={() => setStatusFilter(status)}
               className="gap-2"
             >
-              {status === 'all' ? 'All' : statusConfig[status as keyof typeof statusConfig]?.label || status}
+              {status === 'all' ? 'All' : statusConfig[status]?.label || status}
               <span className="text-xs opacity-60">({count})</span>
             </Button>
           ))}
@@ -157,8 +157,8 @@ export function Pipeline() {
                     <Badge variant="outline" className="text-xs">
                       {item.symbol}
                     </Badge>
-                    <Badge className={`text-xs border ${statusConfig[item.status as keyof typeof statusConfig].color}`}>
-                      {statusConfig[item.status as keyof typeof statusConfig].label}
+                    <Badge className={`text-xs border ${statusConfig[item.status].color}`}>
+                      {statusConfig[item.status].label}
                     </Badge>
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">{item.notes}</p>

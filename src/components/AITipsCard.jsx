@@ -1,5 +1,5 @@
 import { Lightbulb, X } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Card, CardContent } from './ui/card'
 import { Button } from './ui/button'
 
@@ -19,6 +19,11 @@ export function AITipsCard() {
     setCurrentTip((prev) => (prev + 1) % aiTips.length)
   }
 
+  useEffect(() => {
+    const interval = setInterval(nextTip, 5000)
+    return () => clearInterval(interval)
+  }, [])
+
   if (!isVisible) return null
 
   return (
@@ -33,14 +38,6 @@ export function AITipsCard() {
             <p className="text-sm text-foreground/80 leading-relaxed">
               {aiTips[currentTip]}
             </p>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={nextTip}
-              className="mt-2 h-7 px-2 text-xs text-blue-400 hover:text-blue-300"
-            >
-              Next tip
-            </Button>
           </div>
           <Button
             variant="ghost"
