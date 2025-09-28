@@ -13,12 +13,6 @@ import {
 import { Button } from './ui/button'
 import { cn } from './ui/utils'
 
-interface SidebarProps {
-  activeSection: string
-  onSectionChange: (section: string) => void
-  isDarkMode: boolean
-  onThemeToggle: () => void
-}
 
 const navigationItems = [
   { id: 'morning-brief', label: 'Morning Brief', icon: Sun },
@@ -28,7 +22,7 @@ const navigationItems = [
   { id: 'export', label: 'Export', icon: Download },
 ]
 
-export function Sidebar({ activeSection, onSectionChange, isDarkMode, onThemeToggle }: SidebarProps) {
+export function Sidebar({ activeSection, onSectionChange, isDarkMode, onThemeToggle }) {
   return (
     <div className="w-64 bg-sidebar border-r border-sidebar-border flex flex-col h-full">
       {/* Header */}
