@@ -82,12 +82,12 @@ const reportTypes = [
 ]
 
 export function Export() {
-  const [selectedReports, setSelectedReports] = useState<string[]>([])
+  const [selectedReports, setSelectedReports] = useState([])
   const [selectedFormat, setSelectedFormat] = useState('PDF')
   const [dateRange, setDateRange] = useState('ytd')
   const [isExporting, setIsExporting] = useState(false)
 
-  const handleReportToggle = (reportId: string) => {
+  const handleReportToggle = (reportId) => {
     setSelectedReports(prev => 
       prev.includes(reportId) 
         ? prev.filter(id => id !== reportId)
