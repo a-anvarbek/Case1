@@ -25,11 +25,11 @@ export default function Sidebar({ isDarkMode, onThemeToggle }) {
   const location = useLocation()
 
   return (
-    <div className="w-64 bg-sidebar border-r border-sidebar-border flex flex-col h-full">
+    <div className="w-64 bg-sidebar border-r border-sidebar-border flex flex-col h-screen">
       {/* Header */}
       <div className="p-6 border-b border-sidebar-border">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-sidebar-primary rounded-lg flex items-center justify-center">
+          <div className="w-8 h-19 bg-sidebar-primary rounded-lg flex items-center justify-center">
             <BarChart3 className="w-4 h-4 text-sidebar-primary-foreground" />
           </div>
           <div>
