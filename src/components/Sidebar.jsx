@@ -1,28 +1,29 @@
-import { useState } from 'react'
 import { 
   BarChart3, 
-  BookOpen, 
-  Download, 
   FileText, 
-  Lightbulb, 
-  Moon, 
+  Download, 
   Sun, 
+  Moon, 
   TrendingUp,
   User
 } from 'lucide-react'
 import { Button } from './ui/button'
 import { cn } from './ui/utils'
-
+import { useNavigate, useLocation } from 'react-router'
+import ROUTES from "../router/routes"
 
 const navigationItems = [
-  { id: 'morning-brief', label: 'Morning Brief', icon: Sun },
-  { id: 'pipeline', label: 'Pipeline', icon: TrendingUp },
-  { id: 'notes', label: 'Notes', icon: FileText },
-  { id: 'portfolio', label: 'Portfolio', icon: BarChart3 },
-  { id: 'export', label: 'Export', icon: Download },
+  { path: ROUTES.HOME, label: 'Morning Brief', icon: Sun },
+  { path: ROUTES.PIPELINE, label: 'Pipeline', icon: TrendingUp },
+  { path: ROUTES.NOTES, label: 'Notes', icon: FileText },
+  { path: ROUTES.PORTFOLIO, label: 'Portfolio', icon: BarChart3 },
+  { path: ROUTES.EXPORT, label: 'Export', icon: Download },
 ]
 
-export function Sidebar({ activeSection, onSectionChange, isDarkMode, onThemeToggle }) {
+export default function Sidebar({ isDarkMode, onThemeToggle }) {
+  const navigate = useNavigate()
+  const location = useLocation()
+
   return (
     <div className="w-64 bg-sidebar border-r border-sidebar-border flex flex-col h-full">
       {/* Header */}
@@ -42,17 +43,19 @@ export function Sidebar({ activeSection, onSectionChange, isDarkMode, onThemeTog
       <nav className="flex-1 p-4 space-y-2">
         {navigationItems.map((item) => {
           const Icon = item.icon
+          const isActive = location.pathname === item.path
+
           return (
             <Button
-              key={item.id}
-              variant={activeSection === item.id ? "default" : "ghost"}
+              key={item.path}
+              variant={isActive ? "default" : "ghost"}
               className={cn(
                 "w-full justify-start gap-3 h-12",
-                activeSection === item.id 
-                  ? "bg-sidebar-primary text-sidebar-primary-foreground hover:bg-sidebar-primary/90" 
+                isActive
+                  ? "bg-sidebar-primary text-sidebar-primary-foreground hover:bg-sidebar-primary/90"
                   : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
               )}
-              onClick={() => onSectionChange(item.id)}
+              onClick={() => navigate(item.path)}
             >
               <Icon className="w-5 h-5" />
               {item.label}
