@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
-import { Button } from './ui/button'
-import { Badge } from './ui/badge'
-import { Checkbox } from './ui/checkbox'
+import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
+import { Button } from '../components/ui/button'
+import { Badge } from '../components/ui/badge'
+import { Checkbox } from '../components/ui/checkbox'
 import {
 Download,
 FileText,
@@ -21,7 +21,7 @@ SelectContent,
 SelectItem,
 SelectTrigger,
 SelectValue,
-} from './ui/select'
+} from '../components/ui/select'
 
 const exportHistory = [
 {
@@ -81,12 +81,12 @@ icon: File
 }
 ]
 
-export function Export() {
-const [selectedReports, setSelectedReports] = useState([])
-const [selectedFormat, setSelectedFormat] = useState('PDF')
-const [dateRange, setDateRange] = useState('ytd')
-const [isExporting, setIsExporting] = useState(false)
-const [hoveredReport, setHoveredReport] = useState(true)
+export default function Export() {
+  const [selectedReports, setSelectedReports] = useState([])
+  const [selectedFormat, setSelectedFormat] = useState('PDF')
+  const [dateRange, setDateRange] = useState('ytd')
+  const [isExporting, setIsExporting] = useState(false)
+  const [hoveredReport, setHoveredReport] = useState(null)
 
 const handleReportToggle = (reportId) => {
 setSelectedReports(prev =>
@@ -142,7 +142,7 @@ return (
                   <div
                     key={report.id}
                     className={`p-4 border rounded-lg cursor-pointer transition-colors ${
-                      isSelected ? 'border-primary bg-primary/5' : `hover:bg-accent/50 ${hoveredReport === report.id ? 'shake' : ''}`
+                      isSelected ? 'border-primary bg-primary/5' : `hover:bg-accent/50 ${hoveredReport === report.id ? 'animate-shake' : ''}`
                     }`}
                     onClick={() => handleReportToggle(report.id)}
                     onMouseEnter={() => setHoveredReport(report.id)}
