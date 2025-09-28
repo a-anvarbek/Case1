@@ -1,85 +1,97 @@
-# Figma Make Local Runner
+🚀 Features
+📊 InvestView
 
-A skeleton project designed to run code downloaded from Figma Make locally, so you can easily modify the generated code with your favorite tools.
+Morning Brief
 
-> Figma now allows you to download an entire runnable project directly.  
-> You may try this project if you encounter issues running the project downloaded from Figma Make
+Daily market news
 
-This project also includes a `build:single` command to generate a single HTML file containing your entire app.  
-This is useful if you want to share your app as a standalone file.
+Quick portfolio status card
 
-## ⚡ How It Works
+Pipeline
 
-1. **Pre-installed Packages**  
-   This project comes with many packages that Figma Make-generated code may require (see `package.json`). If you encounter errors about missing dependencies, simply install the required packages using `npm install <package-name>`.
+Track potential investments
 
-2. **Automatic Removal of Version Specifiers in Imports**  
-   Figma Make sometimes generates import statements with explicit version specifiers, for example:
+Status tags: Researching, In Progress, Rejected
 
-   ```js
-   import { Slot } from "@radix-ui/react-slot@1.1.2";
-   ```
+Notes
 
-   This can cause version conflicts or issues with local development.  
-   **Solution:**  
-   This project uses a custom Vite plugin that automatically removes version specifiers from import statements during build and development.  
-   The above import will be transformed to:
+Simple notepad area with folder support
 
-   ```js
-   import { Slot } from "@radix-ui/react-slot";
-   ```
+Portfolio
 
-   This ensures compatibility with the dependencies installed in your project.
+Interactive dashboard with charts
 
-   > If you still see errors about missing packages, install them manually as needed.
+Pie Chart – Asset allocation
 
-3. **Resolve `figma:asset/` Imports**  
-   Figma Make may generate imports like:
+Line Chart – Growth over time
 
-   ```js
-   import logo from "figma:asset/logo.svg";
-   ```
+Export
 
-   This project includes a custom Vite plugin that automatically resolves these imports to files in your local `src/assets` directory.
+PDF / Excel export options
 
-## 📋 Prerequisites
+🎨 Design Requirements
 
-Before you begin, ensure you have the following installed:
+Dark mode as default (toggle available)
 
-- [Node.js](https://nodejs.org/) (version 18 or higher)
-- [npm](https://www.npmjs.com/) (comes with Node.js)
+Smooth, intuitive navigation
 
-## 🛠️ Installation & Setup
+Minimal but professional animations
 
-### 1. Clone the Repository
+Dashboard widgets with quick stats
 
-```bash
-git clone https://github.com/likang/figma-make-local-runner
-cd figma-make-local-runner
-```
+Clean typography & modern color scheme
 
-### 2. Download Code from Figma Make
+💡 Extra Features (Innovation)
 
-1. Export your code from Figma Make
-2. Decompress the downloaded files
-3. Copy the `src` folder into the root of this project, replacing the existing `src` folder.
+AI Tips Card – Example: “Your portfolio is not diversified enough”
 
-**Important**: Make sure to replace or merge with the existing files in the `src` folder. The current `src` folder contains a demo application that you should replace with your Figma Make code.
+Shortcuts for quick navigation
 
-### 3. Install Dependencies
+Interactive Dashboard Elements for better user engagement
 
-```bash
+🛠️ Tech Stack (Suggested)
+
+Frontend: React + TailwindCSS / Styled-Components
+
+Charts: Recharts / Chart.js
+
+State Management: React Context / Redux
+
+Export: jsPDF, SheetJS
+
+Animations: Framer Motion
+
+📷 UI Style
+
+Sleek, investor-focused, and professional
+
+Minimal clutter, clear data visualization
+
+Optimized for both desktop and tablet
+
+📦 Installation & Setup
+# Clone the repo
+git clone https://github.com/yourusername/investor-portfolio-tracker.git
+
+# Navigate into project folder
+cd investor-portfolio-tracker
+
+# Install dependencies
 npm install
-```
 
-### 4. Start Development Server
-
-```bash
+# Run development server
 npm run dev
-```
 
-The application will be available at `http://localhost:5173` (or another port if 5173 is occupied).
+📌 Roadmap
 
-## 📄 License
+ Add authentication (login/signup)
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+ Multi-language support
+
+ Advanced AI recommendations
+
+ Mobile responsive layout
+
+📄 License
+
+This project is licensed under the MIT License.
