@@ -3,6 +3,47 @@
 import * as React from "react";
 import { cn } from "./utils";
 
+// ================= Tabs Component =================
+function Tabs({ children, className, ...props }) {
+  return (
+    <div data-slot="tabs" className={cn("flex flex-col", className)} {...props}>
+      {children}
+    </div>
+  );
+}
+
+function TabsList({ children, className, ...props }) {
+  return (
+    <div data-slot="tabs-list" className={cn("flex border-b", className)} {...props}>
+      {children}
+    </div>
+  );
+}
+
+function TabsTrigger({ children, className, ...props }) {
+  return (
+    <button
+      data-slot="tabs-trigger"
+      className={cn(
+        "px-3 py-1 text-sm font-medium text-foreground hover:text-primary",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+}
+
+function TabsContent({ children, className, ...props }) {
+  return (
+    <div data-slot="tabs-content" className={cn("mt-2", className)} {...props}>
+      {children}
+    </div>
+  );
+}
+
+// ================= Table Components =================
 function Table(props) {
   return (
     <div data-slot="table-container" className="relative w-full overflow-x-auto">
@@ -72,6 +113,10 @@ function TableCaption(props) {
 }
 
 export {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
   Table,
   TableHeader,
   TableBody,
